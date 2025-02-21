@@ -1,0 +1,10 @@
+# CSV files
+*.csv
+
+# In case of Excel-generated CSV files with capital extension
+# allow files with .CSV extension
+*.csv
+
+
+# Executable files
+*.exe
