@@ -8,3 +8,7 @@
 
 # Executable files
 *.exe
+
+# Database files
+*.db
+

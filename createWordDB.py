@@ -27,12 +27,12 @@ def create_database(language_name, english_name, language_code):
         """
         CREATE TABLE IF NOT EXISTS words (
             word_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            word TEXT NOT NULL CHECK(LENGTH(word) <= 15),
+            word TEXT NOT NULL UNIQUE CHECK(LENGTH(word) <= 15),
             en_translation TEXT NOT NULL CHECK(LENGTH(en_translation) <= 120),
-            level INTEGER CHECK(level BETWEEN 0 AND 10),
+            level INTEGER NOT NULL CHECK(level BETWEEN 0 AND 10),
             isAnswer BOOLEAN,
             rootWord TEXT CHECK(LENGTH(rootWord) <= 15),
-            length INTEGER CHECK(length > 0 AND length <= 15)
+            length INTEGER NOT NULL CHECK(length > 0 AND length <= 15)
         )
     """
     )
@@ -45,7 +45,7 @@ def create_database(language_name, english_name, language_code):
         """
         CREATE TABLE IF NOT EXISTS sources (
             source_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            short_name TEXT NOT NULL CHECK(LENGTH(short_name) = 4),
+            short_name TEXT NOT NULL UNIQUE CHECK(LENGTH(short_name) = 4),
             description TEXT CHECK(LENGTH(description) <= 120)
         )
     """
