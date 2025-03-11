@@ -9,9 +9,6 @@
 # Executable files
 *.exe
 
-# Database files
-*.db
-
 # Venv
 venv/
 .venv/

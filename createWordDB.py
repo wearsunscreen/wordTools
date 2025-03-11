@@ -58,6 +58,20 @@ def create_database(db_path):
     """
     )
 
+    # Create edits table
+    cursor.execute(
+        """
+    CREATE TABLE edits (
+        edit_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        date TEXT NOT NULL,
+        word TEXT NOT NULL,
+        change_description TEXT NOT NULL,
+        author TEXT NOT NULL,
+        FOREIGN KEY (word) REFERENCES words(word)
+    )
+    """
+    )
+
     # Create indexes
     cursor.execute("CREATE INDEX idx_length ON words(length)")
     cursor.execute("CREATE INDEX idx_level ON words(level)")
