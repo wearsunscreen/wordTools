@@ -12,3 +12,11 @@
 # Database files
 *.db
 
+# Venv
+venv/
+.venv/
+
+# Pycache
+__pycache__/
+
+
