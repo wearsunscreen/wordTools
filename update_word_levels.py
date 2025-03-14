@@ -24,8 +24,8 @@ def update_word_levels():
                     # Update the level for the word
                     cursor.execute(
                         """
-                        UPDATE words 
-                        SET level = ? 
+                        UPDATE words
+                        SET level = ?
                         WHERE word = ?
                     """,
                         (int(level), word),
