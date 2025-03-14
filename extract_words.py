@@ -24,16 +24,25 @@ def extract_five_letter_words():
 
     # Create output format
     output_data = {
-        "words": [
-            {"word": word, "translation": translation} for word, translation in words
-        ]
+        "languageCode": "es",
+        "wordGroups": [
+            {
+                "wordLength": 5,
+                "words": [
+                    {"word": word, "translation": translation}
+                    for word, translation in words
+                ],
+            }
+        ],
     }
 
     # Write to output file
     with open("es_data/words_es.json", "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=4)
 
-    print(f"Successfully extracted {len(output_data['words'])} five-letter words")
+    print(
+        f"Successfully extracted {len(output_data['wordGroups'][0]['words'])} five-letter words"
+    )
 
 
 if __name__ == "__main__":
